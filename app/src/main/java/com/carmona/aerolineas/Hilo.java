@@ -1,5 +1,7 @@
 package com.carmona.aerolineas;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
 
@@ -10,9 +12,11 @@ import android.widget.ProgressBar;
 public class Hilo extends AsyncTask<Void,Float,Void> {
 
     private ProgressBar pgbHilo;
+    private Context con;
 
-    public Hilo(ProgressBar pgbHilo){
-
+    public Hilo(ProgressBar pgbHilo, Context con){
+        this.pgbHilo = pgbHilo;
+        this.con = con;
     }
     @Override
     protected Void doInBackground(Void... params) {
@@ -29,5 +33,13 @@ public class Hilo extends AsyncTask<Void,Float,Void> {
     protected void onProgressUpdate(Float... values) {
         super.onProgressUpdate(values);
         pgbHilo.setProgress(values[0].intValue());
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        Intent intlogin = new Intent(con,Login.class);
+        con.startActivity(intlogin);
+        con.
     }
 }
