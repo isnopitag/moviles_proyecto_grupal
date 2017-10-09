@@ -21,9 +21,9 @@ public class Hilo extends AsyncTask<Void,Float,Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            for (int i=1; i<=3; i++){
+            for (int i=1; i<=5; i++){
                 Thread.sleep(1000);
-                publishProgress(i*33f);
+                publishProgress(i*20f);
             }
         }catch (InterruptedException e){}
         return null;
@@ -38,8 +38,8 @@ public class Hilo extends AsyncTask<Void,Float,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Intent intlogin = new Intent(con,Login.class);
+        Intent intlogin = new Intent(con, Login.class);
         con.startActivity(intlogin);
-        con.
+    //con.
     }
 }
